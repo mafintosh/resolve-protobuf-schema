@@ -6,6 +6,8 @@ Read a protobuf schema from the disk, parse it and resolve all imports
 npm install resolve-protobuf-schema
 ```
 
+[![build status](http://img.shields.io/travis/mafintosh/resolve-protobuf-schema.svg?style=flat)](http://travis-ci.org/mafintosh/resolve-protobuf-schema)
+
 ## Usage
 
 Store the following example protobuf schema in `test.proto`

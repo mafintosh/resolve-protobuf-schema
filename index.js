@@ -11,8 +11,7 @@ var merge = function(a, b) {
 var readSync = function(filename) {
   if (!/\.proto$/i.test(filename) && !fs.existsSync(filename)) filename += '.proto'
 
-  var proto = fs.readFileSync(filename, 'utf-8')
-  var sch = schema(sch)
+  var sch = schema(fs.readFileSync(filename, 'utf-8'))
   var imports = [].concat(sch.imports || [])
 
   imports.forEach(function(i) {

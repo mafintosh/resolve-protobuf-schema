@@ -7,12 +7,12 @@ var test = function(name, fn) {
   })
   tape(name+' sync', function(t) {
     fn(t, function(name, cb) {
-      cb(null, resolve.sync(name))
+      cb(null, schema.sync(name))
     })
   })
 }
 
-test('c', function(t) {
+test('c', function(t, schema) {
   schema(__dirname+'/c.proto', function(err, sch) {
     t.notOk(err, 'no err')
     t.same(sch.messages.length, 1)
@@ -24,7 +24,7 @@ test('c', function(t) {
   })
 })
 
-test('b imports c', function(t) {
+test('b imports c', function(t, schema) {
   schema(__dirname+'/b.proto', function(err, sch) {
     t.notOk(err, 'no err')
     t.same(sch.messages.length, 2)
@@ -36,7 +36,7 @@ test('b imports c', function(t) {
   })
 })
 
-test('a imports b imports c', function(t) {
+test('a imports b imports c', function(t, schema) {
   schema(__dirname+'/a.proto', function(err, sch) {
     t.notOk(err, 'no err')
     t.same(sch.messages.length, 3)

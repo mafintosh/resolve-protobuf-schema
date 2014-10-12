@@ -20,7 +20,7 @@ Then run
 
 ``` js
 var resolve = require('resolve-protobuf-schema')
-console.log(resolve('test.proto')) // prints the parsed schema
+console.log(resolve.sync('test.proto')) // prints the parsed schema
 ```
 
 Schema imports will resolved as well
@@ -34,8 +34,13 @@ message AnotherTest {
 ```
 
 ``` js
-console.log(resolve('./another-test.proto')) // will print a combined parsed schema
+console.log(resolve.sync('./another-test.proto')) // will print a combined parsed schema
 ```
+
+## API
+
+* `resolve(path, cb)` read and resolve a schema
+* `resolve.sync()` sync version of `resolve`
 
 ## License
 

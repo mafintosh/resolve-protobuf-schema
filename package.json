@@ -1,6 +1,6 @@
 {
   "name": "resolve-protobuf-schema",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Read a protobuf schema from the disk, parse it and resolve all imports",
   "main": "index.js",
   "dependencies": {

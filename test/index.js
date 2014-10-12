@@ -1,7 +1,18 @@
 var tape = require('tape')
 var schema = require('../')
 
-tape('c', function(t) {
+var test = function(name, fn) {
+  tape(name, function(t) {
+    fn(t, schema)
+  })
+  tape(name+' sync', function(t) {
+    fn(t, function(name, cb) {
+      cb(null, resolve.sync(name))
+    })
+  })
+}
+
+test('c', function(t) {
   schema(__dirname+'/c.proto', function(err, sch) {
     t.notOk(err, 'no err')
     t.same(sch.messages.length, 1)
@@ -13,7 +24,7 @@ tape('c', function(t) {
   })
 })
 
-tape('b imports c', function(t) {
+test('b imports c', function(t) {
   schema(__dirname+'/b.proto', function(err, sch) {
     t.notOk(err, 'no err')
     t.same(sch.messages.length, 2)
@@ -25,7 +36,7 @@ tape('b imports c', function(t) {
   })
 })
 
-tape('a imports b imports c', function(t) {
+test('a imports b imports c', function(t) {
   schema(__dirname+'/a.proto', function(err, sch) {
     t.notOk(err, 'no err')
     t.same(sch.messages.length, 3)

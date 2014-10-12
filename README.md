@@ -40,7 +40,7 @@ console.log(resolve.sync('./another-test.proto')) // will print a combined parse
 ## API
 
 * `resolve(path, cb)` read and resolve a schema
-* `resolve.sync()` sync version of `resolve`
+* `resolve.sync(path)` sync version of `resolve`
 
 ## License
 

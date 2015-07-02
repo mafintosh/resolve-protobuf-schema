@@ -1,4 +1,4 @@
-var schema = require('protobuf-schema')
+var schema = require('protocol-buffers-schema')
 var fs = require('fs')
 var path = require('path')
 
